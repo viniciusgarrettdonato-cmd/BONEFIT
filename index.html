@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BONEFIT | Treinamento Personalizado</title>
+
+<meta name="description"
+content="BONEFIT - Treinamento personalizado em Campo Largo. Treine com acompanhamento profissional e foco em resultados.">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   CORES
+========================= */
+
+:root {
+    --yellow: #ffd000;
+    --yellow2: #ffdf3f;
+    --black: #080808;
+    --black2: #111111;
+    --black3: #181818;
+    --gray: #aaa;
+    --white: #fff;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    background: rgba(5,5,5,.95);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(255,208,0,.15);
+
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.logo img {
+
+    width: 48px;
+
+    height: 48px;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: .4s ease;
+}
+
+.logo:hover img {
+
+    transform: scale(1.08) rotate(-3deg);
+
+    filter: drop-shadow(0 0 12px rgba(255,208,0,.4));
+}
+
+.logo span {
+
+    color: var(--yellow);
+}
+
+nav {
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+nav a {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    transition: .3s;
+}
+
+nav a:hover {
+
+    color: var(--yellow);
+
+    transform: translateY(-2px);
+}
+
+.header-btn {
+
+    background: var(--yellow);
+
+    color: #000;
+
+    padding: 13px 22px;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    border-radius: 3px;
+
+    transition: .3s;
+}
+
+.header-btn:hover {
+
+    background: white;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(255,255,255,.12);
+}
+
+.menu {
+
+    display: none;
+
+    font-size: 30px;
+
+    color: var(--yellow);
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 120px 7% 80px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+    radial-gradient(
+        circle at 80% 30%,
+        rgba(255,208,0,.15),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        135deg,
+        #050505,
+        #111
+    );
+}
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,208,0,.15);
+
+    right: -180px;
+
+    top: 15%;
+
+    animation: rotateCircle 18s linear infinite;
+}
+
+.hero::after {
+
+    content: "BONEFIT";
+
+    position: absolute;
+
+    right: -100px;
+
+    bottom: -80px;
+
+    font-size: 180px;
+
+    font-weight: 900;
+
+    color: rgba(255,208,0,.035);
+
+    pointer-events: none;
+}
+
+.hero-content {
+
+    max-width: 800px;
+
+    animation: heroIn 1s ease forwards;
+}
+
+.badge {
+
+    display: inline-block;
+
+    background: var(--yellow);
+
+    color: #000;
+
+    padding: 8px 14px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
+
+    animation: fadeUp .8s ease;
+}
+
+.hero h1 {
+
+    font-size: clamp(55px, 8vw, 105px);
+
+    line-height: .88;
+
+    text-transform: uppercase;
+
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 30px;
+
+    animation: fadeUp 1s ease;
+}
+
+.hero h1 span {
+
+    color: var(--yellow);
+
+    text-shadow: 0 0 30px rgba(255,208,0,.15);
+}
+
+.hero p {
+
+    max-width: 650px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #c5c5c5;
+
+    margin-bottom: 35px;
+
+    animation: fadeUp 1.2s ease;
+}
+
+.buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+
+    background: var(--yellow);
+
+    color: #000;
+
+    padding: 17px 28px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    border-radius: 3px;
+
+    transition: .3s;
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 30px rgba(255,208,0,.25);
+}
+
+.btn-outline {
+
+    border: 1px solid #fff;
+
+    padding: 16px 28px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    border-radius: 3px;
+
+    transition: .3s;
+}
+
+.btn-outline:hover {
+
+    background: #fff;
+
+    color: #000;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   GERAL
+========================= */
+
+section {
+
+    padding: 100px 7%;
+}
+
+.section-label {
+
+    color: var(--yellow);
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    font-weight: 900;
+
+    margin-bottom: 12px;
+}
+
+.section-title {
+
+    font-size: clamp(38px, 5vw, 65px);
+
+    line-height: .95;
+
+    text-transform: uppercase;
+
+    font-weight: 900;
+
+    margin-bottom: 20px;
+}
+
+.section-description {
+
+    color: #aaa;
+
+    max-width: 650px;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.sobre {
+
+    background: #0d0d0d;
+}
+
+.sobre-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+/* GALERIA */
+
+.academy-gallery {
+
+    display: grid;
+
+    grid-template-columns: 1.25fr .75fr;
+
+    grid-template-rows: 230px 230px;
+
+    gap: 12px;
+}
+
+.academy-photo {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #151515;
+
+    border: 1px solid #292929;
+
+    border-radius: 3px;
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    animation: photoIn .8s ease forwards;
+}
+
+.academy-photo:nth-child(2) {
+
+    animation-delay: .15s;
+}
+
+.academy-photo:nth-child(3) {
+
+    animation-delay: .3s;
+}
+
+.academy-photo:first-child {
+
+    grid-row: 1 / 3;
+}
+
+.academy-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .7s ease,
+        filter .7s ease;
+}
+
+.academy-photo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 40%,
+            rgba(0,0,0,.75)
+        );
+
+    pointer-events: none;
+}
+
+.academy-photo:hover img {
+
+    transform: scale(1.08);
+
+    filter: brightness(1.12);
+}
+
+.academy-photo:hover {
+
+    border-color: var(--yellow);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.4);
+}
+
+.academy-badge {
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 20px;
+
+    bottom: 18px;
+
+    background: var(--yellow);
+
+    color: #000;
+
+    padding: 8px 12px;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* TEXTO */
+
+.sobre-text p {
+
+    color: #aaa;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.checks {
+
+    margin-top: 30px;
+
+    display: grid;
+
+    gap: 15px;
+}
+
+.check {
+
+    background: #151515;
+
+    border-left: 4px solid var(--yellow);
+
+    padding: 17px;
+
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+.check:hover {
+
+    transform: translateX(6px);
+
+    background: #1b1b1b;
+}
+
+.check span {
+
+    color: var(--yellow);
+
+    margin-right: 10px;
+}
+
+
+/* =========================
+   SERVIÇOS
+========================= */
+
+.servicos {
+
+    background: #080808;
+}
+
+.cards {
+
+    margin-top: 50px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+
+    background: #131313;
+
+    padding: 35px;
+
+    border: 1px solid #242424;
+
+    transition: .4s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 3px;
+
+    background: var(--yellow);
+
+    left: -100%;
+
+    top: 0;
+
+    transition: .4s;
+}
+
+.card:hover::before {
+
+    left: 0;
+}
+
+.card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: var(--yellow);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
+}
+
+.card-number {
+
+    font-size: 14px;
+
+    color: var(--yellow);
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+}
+
+.card h3 {
+
+    font-size: 24px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+}
+
+.card p {
+
+    color: #999;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   DIFERENCIAIS
+========================= */
+
+.diferenciais {
+
+    background: var(--yellow);
+
+    color: #000;
+}
+
+.diferenciais-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+}
+
+.diferencial {
+
+    background: rgba(0,0,0,.08);
+
+    padding: 30px;
+
+    border: 1px solid rgba(0,0,0,.15);
+
+    transition: .35s;
+}
+
+.diferencial:hover {
+
+    background: rgba(0,0,0,.14);
+
+    transform: translateY(-7px);
+}
+
+.diferencial strong {
+
+    font-size: 40px;
+
+    display: block;
+
+    margin-bottom: 15px;
+}
+
+.diferencial h3 {
+
+    text-transform: uppercase;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+.diferencial p {
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FRASE
+========================= */
+
+.frase {
+
+    text-align: center;
+
+    background: #111;
+
+    padding: 120px 7%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.frase::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+
+    height: 350px;
+
+    border: 1px solid rgba(255,208,0,.12);
+
+    border-radius: 50%;
+
+    left: -150px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.frase h2 {
+
+    font-size: clamp(40px,6vw,80px);
+
+    line-height: .95;
+
+    text-transform: uppercase;
+
+    font-weight: 900;
+
+    position: relative;
+}
+
+.frase h2 span {
+
+    color: var(--yellow);
+}
+
+.frase p {
+
+    color: #888;
+
+    margin: 25px auto 0;
+
+    max-width: 600px;
+
+    line-height: 1.7;
+
+    position: relative;
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.contato {
+
+    background: #080808;
+}
+
+.contato-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    margin-top: 50px;
+}
+
+.contact-item {
+
+    padding: 25px;
+
+    background: #131313;
+
+    margin-bottom: 15px;
+
+    border-left: 4px solid var(--yellow);
+
+    transition: .3s;
+}
+
+.contact-item:hover {
+
+    transform: translateX(6px);
+
+    background: #181818;
+}
+
+.contact-item small {
+
+    color: var(--yellow);
+
+    text-transform: uppercase;
+
+    font-weight: 900;
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.contact-item p {
+
+    color: #ddd;
+
+    line-height: 1.6;
+}
+
+.map {
+
+    min-height: 400px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,208,0,.08),
+            transparent 60%
+        ),
+        #151515;
+
+    border: 1px solid #292929;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    transition: .4s;
+}
+
+.map:hover {
+
+    border-color: var(--yellow);
+}
+
+.map-content h3 {
+
+    color: var(--yellow);
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.map-content p {
+
+    color: #aaa;
+
+    line-height: 1.7;
+}
+
+.map-button {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    background: var(--yellow);
+
+    color: #000;
+
+    padding: 14px 20px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    transition: .3s;
+}
+
+.map-button:hover {
+
+    background: #fff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ffd000,
+        #ffbd00
+    );
+
+    color: #000;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.cta::before {
+
+    content: "BONEFIT";
+
+    position: absolute;
+
+    font-size: 160px;
+
+    font-weight: 900;
+
+    opacity: .05;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    white-space: nowrap;
+}
+
+.cta h2 {
+
+    font-size: clamp(45px,6vw,80px);
+
+    text-transform: uppercase;
+
+    line-height: .9;
+
+    font-weight: 900;
+
+    margin-bottom: 20px;
+
+    position: relative;
+}
+
+.cta p {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+
+    position: relative;
+}
+
+.cta-button {
+
+    display: inline-block;
+
+    background: #000;
+
+    color: #fff;
+
+    padding: 17px 30px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    transition: .3s;
+
+    position: relative;
+}
+
+.cta-button:hover {
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.3);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    background: #050505;
+
+    padding: 50px 7% 25px;
+
+    border-top: 1px solid #222;
+}
+
+.footer-grid {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 30px;
+
+    font-weight: 900;
+}
+
+.footer-logo img {
+
+    width: 48px;
+
+    height: 48px;
+
+    object-fit: contain;
+}
+
+.footer-logo span {
+
+    color: var(--yellow);
+}
+
+.footer-text {
+
+    color: #777;
+
+    max-width: 350px;
+
+    line-height: 1.6;
+
+    margin-top: 10px;
+}
+
+.footer-links {
+
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+}
+
+.footer-links a {
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+.footer-links a:hover {
+
+    color: var(--yellow);
+}
+
+.copyright {
+
+    border-top: 1px solid #1d1d1d;
+
+    padding-top: 25px;
+
+    text-align: center;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 62px;
+
+    height: 62px;
+
+    border-radius: 50%;
+
+    background: #25d366;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    color: white;
+
+    z-index: 999;
+
+    box-shadow: 0 5px 25px rgba(0,0,0,.4);
+
+    transition: .3s;
+
+    animation: pulseWhatsapp 2s infinite;
+}
+
+.whatsapp:hover {
+
+    transform: scale(1.1);
+
+    animation: none;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(-30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+@keyframes photoIn {
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateCircle {
+
+    from {
+
+        transform: rotate(0deg);
+    }
+
+    to {
+
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseWhatsapp {
+
+    0% {
+
+        box-shadow:
+            0 0 0 0 rgba(37,211,102,.5);
+    }
+
+    70% {
+
+        box-shadow:
+            0 0 0 15px rgba(37,211,102,0);
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width: 900px) {
+
+    nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 80px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: #090909;
+
+        flex-direction: column;
+
+        padding: 30px;
+
+        border-bottom: 1px solid rgba(255,208,0,.15);
+    }
+
+    nav.active {
+
+        display: flex;
+    }
+
+    .menu {
+
+        display: block;
+    }
+
+    .header-btn {
+
+        display: none;
+    }
+
+    .sobre-grid,
+    .contato-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .diferenciais-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-grid {
+
+        flex-direction: column;
+    }
+
+    .academy-gallery {
+
+        max-width: 700px;
+
+        margin: auto;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    header {
+
+        padding: 0 5%;
+    }
+
+    .logo img {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+    .logo {
+
+        font-size: 25px;
+    }
+
+    section {
+
+        padding: 75px 5%;
+    }
+
+    .hero {
+
+        padding: 120px 5% 80px;
+    }
+
+    .hero h1 {
+
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero p {
+
+        font-size: 16px;
+    }
+
+    .cards {
+
+        grid-template-columns: 1fr;
+    }
+
+    .diferenciais-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .academy-gallery {
+
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-rows: 180px 180px;
+    }
+
+    .academy-photo:first-child {
+
+        grid-row: 1 / 3;
+    }
+
+    .academy-photo:nth-child(2),
+    .academy-photo:nth-child(3) {
+
+        display: block;
+    }
+
+    .whatsapp {
+
+        width: 55px;
+
+        height: 55px;
+
+        right: 18px;
+
+        bottom: 18px;
+    }
+
+    .footer-links {
+
+        gap: 15px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <a href="#inicio" class="logo">
+
+        <img src="logo.png" alt="Logo BoneFit">
+
+        <span>BONEFIT</span>
+
+    </a>
+
+
+    <div class="menu" onclick="toggleMenu()">
+
+        ☰
+
+    </div>
+
+
+    <nav id="nav">
+
+        <a href="#inicio">
+            Início
+        </a>
+
+        <a href="#sobre">
+            A BoneFit
+        </a>
+
+        <a href="#servicos">
+            Serviços
+        </a>
+
+        <a href="#diferenciais">
+            Diferenciais
+        </a>
+
+        <a href="#contato">
+            Contato
+        </a>
+
+    </nav>
+
+
+    <a
+        class="header-btn"
+        href="https://wa.me/5541999289780"
+        target="_blank"
+    >
+
+        FALE CONOSCO
+
+    </a>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <div class="badge">
+
+            Treinamento Personalizado
+
+        </div>
+
+
+        <h1>
+
+            TREINE.<br>
+
+            EVOLUA.<br>
+
+            <span>BONEFIT.</span>
+
+        </h1>
+
+
+        <p>
+
+            Mais do que treinar, é sobre evoluir.
+            Na BoneFit você encontra treinamento personalizado,
+            acompanhamento profissional e um ambiente preparado
+            para ajudar você a alcançar seus objetivos.
+
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="https://wa.me/5541999289780"
+                target="_blank"
+                class="btn-primary"
+            >
+
+                Quero treinar
+
+            </a>
+
+
+            <a
+                href="#sobre"
+                class="btn-outline"
+            >
+
+                Conheça a BoneFit
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section class="sobre" id="sobre">
+
+    <div class="sobre-grid">
+
+
+        <!-- GALERIA COM AS FOTOS -->
+
+        <div class="academy-gallery">
+
+
+            <div class="academy-photo">
+
+                <img
+                    src="acad1.jpeg"
+                    alt="BoneFit - Estrutura e treinamento"
+                >
+
+                <div class="academy-badge">
+
+                    BONEFIT
+
+                </div>
+
+            </div>
+
+
+            <div class="academy-photo">
+
+                <img
+                    src="acad2.jpeg"
+                    alt="BoneFit - Treinamento personalizado"
+                >
+
+            </div>
+
+
+            <div class="academy-photo">
+
+                <img
+                    src="logo.png"
+                    alt="BoneFit - Academia"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <div class="sobre-text">
+
+            <div class="section-label">
+
+                Sobre a BoneFit
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                TREINAMENTO<br>
+
+                QUE FAZ<br>
+
+                DIFERENÇA.
+
+            </h2>
+
+
+            <p>
+
+                A BoneFit é um espaço dedicado ao treinamento
+                personalizado e à evolução de cada aluno.
+
+            </p>
+
+
+            <p>
+
+                Com profissionais preparados e uma estrutura
+                completa, o objetivo é oferecer um treinamento
+                eficiente, dinâmico e adaptado às necessidades
+                de cada pessoa.
+
+            </p>
+
+
+            <div class="checks">
+
+
+                <div class="check">
+
+                    <span>✓</span>
+
+                    Treinos personalizados
+
+                </div>
+
+
+                <div class="check">
+
+                    <span>✓</span>
+
+                    Acompanhamento profissional
+
+                </div>
+
+
+                <div class="check">
+
+                    <span>✓</span>
+
+                    Estrutura completa
+
+                </div>
+
+
+                <div class="check">
+
+                    <span>✓</span>
+
+                    Foco em resultados
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SERVIÇOS
+========================= -->
+
+<section class="servicos" id="servicos">
+
+    <div class="section-label">
+
+        O que fazemos
+
+    </div>
+
+
+    <h2 class="section-title">
+
+        TREINAMENTO<br>
+
+        PARA SEU OBJETIVO.
+
+    </h2>
+
+
+    <p class="section-description">
+
+        Cada pessoa possui um objetivo diferente.
+        Por isso, o treinamento deve acompanhar
+        as necessidades de cada aluno.
+
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-number">
+
+                01 / BONEFIT
+
+            </div>
+
+            <h3>
+
+                Hipertrofia
+
+            </h3>
+
+            <p>
+
+                Treinamentos direcionados para desenvolvimento
+                muscular e evolução de força.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+
+                02 / BONEFIT
+
+            </div>
+
+            <h3>
+
+                Emagrecimento
+
+            </h3>
+
+            <p>
+
+                Treinos planejados para aumentar o gasto energético
+                e melhorar o condicionamento.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+
+                03 / BONEFIT
+
+            </div>
+
+            <h3>
+
+                Performance
+
+            </h3>
+
+            <p>
+
+                Preparação física para quem busca melhorar
+                desempenho e condicionamento.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+
+                04 / BONEFIT
+
+            </div>
+
+            <h3>
+
+                Força
+
+            </h3>
+
+            <p>
+
+                Desenvolvimento de força e capacidade física
+                através de treinos estruturados.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+
+                05 / BONEFIT
+
+            </div>
+
+            <h3>
+
+                Condicionamento
+
+            </h3>
+
+            <p>
+
+                Melhore sua resistência, disposição e capacidade
+                para realizar suas atividades.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+
+                06 / BONEFIT
+
+            </div>
+
+            <h3>
+
+                Qualidade de vida
+
+            </h3>
+
+            <p>
+
+                Treinamento para manter um estilo de vida ativo,
+                saudável e com mais disposição.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     DIFERENCIAIS
+========================= -->
+
+<section class="diferenciais" id="diferenciais">
+
+    <div
+        class="section-label"
+        style="color:#000;"
+    >
+
+        Por que BoneFit?
+
+    </div>
+
+
+    <h2 class="section-title">
+
+        FOCO EM<br>
+
+        VOCÊ.
+
+    </h2>
+
+
+    <div class="diferenciais-grid">
+
+
+        <div class="diferencial">
+
+            <strong>
+
+                01
+
+            </strong>
+
+            <h3>
+
+                Personalização
+
+            </h3>
+
+            <p>
+
+                Treinamento adaptado para diferentes
+                objetivos e níveis.
+
+            </p>
+
+        </div>
+
+
+        <div class="diferencial">
+
+            <strong>
+
+                02
+
+            </strong>
+
+            <h3>
+
+                Profissionais
+
+            </h3>
+
+            <p>
+
+                Acompanhamento durante sua jornada
+                de treinamento.
+
+            </p>
+
+        </div>
+
+
+        <div class="diferencial">
+
+            <strong>
+
+                03
+
+            </strong>
+
+            <h3>
+
+                Estrutura
+
+            </h3>
+
+            <p>
+
+                Espaço preparado para diferentes
+                tipos de treinamento.
+
+            </p>
+
+        </div>
+
+
+        <div class="diferencial">
+
+            <strong>
+
+                04
+
+            </strong>
+
+            <h3>
+
+                Evolução
+
+            </h3>
+
+            <p>
+
+                Consistência e treinamento para
+                buscar seus objetivos.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FRASE
+========================= -->
+
+<section class="frase">
+
+    <h2>
+
+        SEU OBJETIVO.<br>
+
+        NOSSO <span>FOCO.</span>
+
+    </h2>
+
+
+    <p>
+
+        Comece hoje a construir a sua melhor versão.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     CONTATO
+========================= -->
+
+<section class="contato" id="contato">
+
+    <div class="section-label">
+
+        Onde estamos
+
+    </div>
+
+
+    <h2 class="section-title">
+
+        VENHA<br>
+
+        TREINAR.
+
+    </h2>
+
+
+    <div class="contato-grid">
+
+
+        <div>
+
+
+            <div class="contact-item">
+
+                <small>
+
+                    Endereço
+
+                </small>
+
+                <p>
+
+                    Rua Oswaldo Cruz, 2168<br>
+
+                    Centro<br>
+
+                    Campo Largo - PR<br>
+
+                    CEP 83601-150
+
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+
+                    WhatsApp
+
+                </small>
+
+                <p>
+
+                    (41) 99928-9780
+
+                </p>
+
+            </div>
+
+
+            
+
+                </small>
+
+                <p>
+
+                
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="map">
+
+            <div class="map-content">
+
+                <h3>
+
+                    BONEFIT
+
+                </h3>
+
+
+                <p>
+
+                    Rua Oswaldo Cruz, 2168<br>
+
+                    Centro - Campo Largo/PR
+
+                </p>
+
+
+                <a
+                    class="map-button"
+                    href="https://www.google.com/maps/search/?api=1&query=Bone+Fit+Studio+Personal+Rua+Oswaldo+Cruz+2168+Campo+Largo+PR"
+                    target="_blank"
+                >
+
+                    Ver no Google Maps
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <h2>
+
+        PRONTO PARA<br>
+
+        COMEÇAR?
+
+    </h2>
+
+
+    <p>
+
+        Entre em contato com a BoneFit
+        e conheça as opções de treinamento.
+
+    </p>
+
+
+    <a
+        href="https://wa.me/5541999289780"
+        target="_blank"
+        class="cta-button"
+    >
+
+        CHAMAR NO WHATSAPP
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <div class="footer-logo">
+
+                <img
+                    src="logo.png"
+                    alt="Logo BoneFit"
+                >
+
+                <span>
+
+                    BONEFIT
+
+                </span>
+
+            </div>
+
+
+            <p class="footer-text">
+
+                Treinamento personalizado.
+                Evolução todos os dias.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#inicio">
+
+                Início
+
+            </a>
+
+
+            <a href="#sobre">
+
+                Sobre
+
+            </a>
+
+
+            <a href="#servicos">
+
+                Serviços
+
+            </a>
+
+
+            <a href="#contato">
+
+                Contato
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 BONEFIT — Todos os direitos reservados.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a
+    href="https://wa.me/5541999289780"
+    target="_blank"
+    class="whatsapp"
+    aria-label="WhatsApp BoneFit"
+>
+
+    ☎
+
+</a>
+
+
+
+<script>
+
+/* =========================
+   MENU MOBILE
+========================= */
+
+function toggleMenu() {
+
+    const nav = document.getElementById("nav");
+
+    nav.classList.toggle("active");
+
+}
+
+
+/* =========================
+   FECHAR MENU AO CLICAR
+========================= */
+
+document.querySelectorAll("nav a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        document
+        .getElementById("nav")
+        .classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================
+   ANIMAÇÃO AO ROLAR
+========================= */
+
+const observer = new IntersectionObserver(
+
+    function(entries) {
+
+        entries.forEach(function(entry) {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.15
+    }
+
+);
+
+
+document
+.querySelectorAll(".card, .diferencial, .contact-item")
+.forEach(function(element) {
+
+    element.style.opacity = "0";
+
+    element.style.transform = "translateY(25px)";
+
+    element.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+    observer.observe(element);
+
+});
+
+</script>
+
+
+</body>
+
+</html>
